@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="@+id/button_plus"
         app:layout_constraintTop_toTopOf="parent"
         tools:text = "1 + 1 = 2"
+        android:inputType="numberDecimal"
         android:textAlignment="center"/>
 
     <Button
