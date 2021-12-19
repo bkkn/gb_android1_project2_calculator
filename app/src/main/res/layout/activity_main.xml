@@ -14,7 +14,9 @@
         app:layout_constraintBottom_toTopOf="@+id/button_plus"
         app:layout_constraintEnd_toEndOf="@+id/button_divide"
         app:layout_constraintStart_toStartOf="@+id/button_plus"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text = "1 + 1 = 2"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/button_1"
