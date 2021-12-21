@@ -7,17 +7,18 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/screen_edit_text"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/button_plus"
         app:layout_constraintEnd_toEndOf="@+id/button_divide"
         app:layout_constraintStart_toStartOf="@+id/button_plus"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text = "1 + 1 = 2"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"/>
+        tools:text="1 + 1 = 2" />
 
     <Button
         android:id="@+id/button_1"
