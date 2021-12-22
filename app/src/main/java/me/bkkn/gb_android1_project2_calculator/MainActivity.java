@@ -1,7 +1,9 @@
 package me.bkkn.gb_android1_project2_calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         initDigitButtons();
         output = findViewById(R.id.screen_edit_text);
         initOperations();
+        initSpecialButtons();
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     private void initDigitButtons() {
@@ -54,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void appendResultOfCalculation() {
-
     }
 
     private void initSpecialButtons() {
