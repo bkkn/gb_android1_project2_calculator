@@ -3,9 +3,11 @@ package me.bkkn.gb_android1_project2_calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Button> digitButtonList;
     private ArrayList<Integer> digitButtonResourceList;
     private TextView output;
+    private Button lookupButton;
 
     void appendToOutputOnButtonPressed(Button button) {
         output.setText(output.getText().toString() + button.getText());
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         output = findViewById(R.id.screen_edit_text);
         initOperations();
         initSpecialButtons();
+
+        if(savedInstanceState != null && savedInstanceState.containsKey(Expression.KEY))
+            output.setText(((Expression)savedInstanceState.get(Expression.KEY)).toString());
     }
 
     @Override
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         Log.d(TAG, "onSaveInstanceState() called with: outState = [" + outState + "]");
-        outState.putSerializable(Expression.KEY,new Expression(output.getText()));
+        outState.putSerializable(Expression.KEY, new Expression(output.getText()));
         super.onSaveInstanceState(outState);
     }
 
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         Log.d(TAG, "onRestoreInstanceState() called with: savedInstanceState = [" + savedInstanceState + "]");
         super.onRestoreInstanceState(savedInstanceState);
-        String str = ((Expression)savedInstanceState.getSerializable(Expression.KEY)).toString();
+        String str = ((Expression) savedInstanceState.getSerializable(Expression.KEY)).toString();
         output.setText(str);
     }
 
@@ -88,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
     private void initSpecialButtons() {
         findViewById(R.id.dot_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
         findViewById(R.id.sign_button).setOnClickListener(v -> doComplicatedStuffOnButtonPressed((Button) v));
+        lookupButton = findViewById(R.id.lookup_button);
+        lookupButton.setOnClickListener(view -> {
+            startActivity(new Intent().setClass(this,LookupActivity.class).putExtra(Expression.KEY, new Expression(output.getText())));
+        });
     }
 
     private void doComplicatedStuffOnButtonPressed(Button v) {
