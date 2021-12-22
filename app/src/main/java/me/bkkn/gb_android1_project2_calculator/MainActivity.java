@@ -12,21 +12,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //    private Button digitOneButton;
-//    private Button digitTwoButton;
-//    private Button digitThreeButton;
-//    private Button digitFourButton;
-//    private Button digitFiveButton;
-//    private Button digitSixButton;
-//    private Button digitSevenButton;
-//    private Button digitEightButton;
-//    private Button digitNineButton;
-//    private Button digitZeroButton;
     private List<Button> digitButtonList;
     private ArrayList<Integer> digitButtonResourceList;
     private TextView output;
 
-    void append(Button button) {
+    void appendToOutputOnButtonPressed(Button button) {
         output.setText(output.getText().toString() + button.getText());
     }
 
@@ -37,17 +27,43 @@ public class MainActivity extends AppCompatActivity {
 
         initDigitButtons();
         output = findViewById(R.id.screen_edit_text);
-        findViewById(R.id.clear_button).setOnClickListener(v -> output.setText(""));
-        findViewById(R.id.backspace_button).setOnClickListener(v -> {
-            String text = (String) output.getText();
-            if(!text.isEmpty())
-                output.setText(text.subSequence(0, text.length() - 1));
-        });
+        initOperations();
     }
 
     private void initDigitButtons() {
         initResourceList();
         initDigitButtonList();
+    }
+
+    private void initOperations() {
+        findViewById(R.id.plus_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
+        findViewById(R.id.minus_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
+        findViewById(R.id.multiply_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
+        findViewById(R.id.divide_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
+        findViewById(R.id.equals_button).setOnClickListener(v -> {
+            appendToOutputOnButtonPressed((Button) v);
+            appendResultOfCalculation();
+        });
+
+        findViewById(R.id.clear_button).setOnClickListener(v -> output.setText(""));
+        findViewById(R.id.backspace_button).setOnClickListener(v -> {
+            String text = (String) output.getText();
+            if (!text.isEmpty())
+                output.setText(text.subSequence(0, text.length() - 1));
+        });
+    }
+
+    private void appendResultOfCalculation() {
+
+    }
+
+    private void initSpecialButtons() {
+        findViewById(R.id.dot_button).setOnClickListener(v -> appendToOutputOnButtonPressed((Button) v));
+        findViewById(R.id.sign_button).setOnClickListener(v -> doComplicatedStuffOnButtonPressed((Button) v));
+    }
+
+    private void doComplicatedStuffOnButtonPressed(Button v) {
+        //TODO: insert '-' before or multiply the answer by -1
     }
 
     void initResourceList() {
@@ -68,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         digitButtonList = new ArrayList<>();
         for (int resourceId : digitButtonResourceList) {
             final Button[] button = {findViewById(resourceId)};
-            button[0].setOnClickListener(v -> append(button[0]));
+            button[0].setOnClickListener(v -> appendToOutputOnButtonPressed(button[0]));
             digitButtonList.add(button[0]);
         }
     }
