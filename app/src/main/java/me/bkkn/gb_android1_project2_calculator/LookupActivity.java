@@ -17,6 +17,6 @@ public class LookupActivity extends AppCompatActivity {
         setContentView(R.layout.lookup_activity);
         ((TextView) findViewById(R.id.lookup_edit_text))
                 .setText(((Expression) getIntent()
-                        .getSerializableExtra(Expression.KEY)).toString());
+                        .getParcelableExtra(Expression.KEY)).toString());
     }
 }

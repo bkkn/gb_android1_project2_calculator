@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         Log.d(TAG, "onSaveInstanceState() called with: outState = [" + outState + "]");
-        outState.putSerializable(Expression.KEY, new Expression(output.getText()));
+        outState.putParcelable(Expression.KEY, new Expression(output.getText()));
         super.onSaveInstanceState(outState);
     }
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         Log.d(TAG, "onRestoreInstanceState() called with: savedInstanceState = [" + savedInstanceState + "]");
         super.onRestoreInstanceState(savedInstanceState);
-        String str = ((Expression) savedInstanceState.getSerializable(Expression.KEY)).toString();
+        String str = ((Expression) savedInstanceState.getParcelable(Expression.KEY)).toString();
         output.setText(str);
     }
 
