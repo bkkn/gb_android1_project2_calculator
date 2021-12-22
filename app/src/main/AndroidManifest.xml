@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Gb_android1_project2_calculator">
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

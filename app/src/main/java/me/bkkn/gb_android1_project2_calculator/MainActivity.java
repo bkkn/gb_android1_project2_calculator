@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "@@@";
     private List<Button> digitButtonList;
     private ArrayList<Integer> digitButtonResourceList;
     private TextView output;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        Log.d(TAG, "onConfigurationChanged() called with: newConfig = [" + newConfig + "]");
         super.onConfigurationChanged(newConfig);
     }
 

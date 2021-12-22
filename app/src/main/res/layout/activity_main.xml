@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/screen_edit_text"
         android:layout_width="0dp"
         android:layout_height="0dp"
