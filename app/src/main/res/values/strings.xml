@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gb_android1_project2_calculator</string>
+    <string name="look_up_the_expression">Look Up The Expression</string>
 </resources>

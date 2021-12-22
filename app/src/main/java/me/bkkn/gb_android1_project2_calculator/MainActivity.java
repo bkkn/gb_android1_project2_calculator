@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         Log.d(TAG, "onConfigurationChanged() called with: newConfig = [" + newConfig + "]");
         super.onConfigurationChanged(newConfig);
+        // WHY HAS IT NEVER BEEN CALLED ?
     }
 
     @Override

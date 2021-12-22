@@ -15,8 +15,8 @@
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/plus_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1 + 1 = 2" />
 
@@ -223,5 +223,21 @@
         app:layout_constraintStart_toEndOf="@id/digit_zero_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_nine_button"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="left"
+        android:textAllCaps="true"
+        app:backgroundTint="#fc0"
+        app:iconGravity="textStart"
+        app:iconPadding="10dp"
+        app:iconTint="#f00"
+        app:icon="@drawable/ic_baseline_search_24"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign_button"
+        app:layout_constraintTop_toBottomOf="@+id/equals_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
