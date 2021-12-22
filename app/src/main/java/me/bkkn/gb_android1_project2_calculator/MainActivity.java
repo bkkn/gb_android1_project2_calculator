@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import me.bkkn.gb_android1_project2_calculator.model.Expression;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "@@@";
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
         initDigitButtons();
         output = findViewById(R.id.screen_edit_text);
         initOperations();
@@ -39,6 +41,21 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         Log.d(TAG, "onConfigurationChanged() called with: newConfig = [" + newConfig + "]");
         super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState() called with: outState = [" + outState + "]");
+        outState.putSerializable(Expression.KEY,new Expression(output.getText()));
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        Log.d(TAG, "onRestoreInstanceState() called with: savedInstanceState = [" + savedInstanceState + "]");
+        super.onRestoreInstanceState(savedInstanceState);
+        String str = ((Expression)savedInstanceState.getSerializable(Expression.KEY)).toString();
+        output.setText(str);
     }
 
     private void initDigitButtons() {
