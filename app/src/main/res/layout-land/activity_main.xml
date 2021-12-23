@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/screen_edit_text"
+        android:id="@+id/output_text_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
@@ -27,7 +27,7 @@
         android:text="1"
         app:layout_constraintBottom_toTopOf="@id/digit_four_button"
         app:layout_constraintEnd_toStartOf="@id/digit_two_button"
-        app:layout_constraintStart_toEndOf="@id/screen_edit_text"
+        app:layout_constraintStart_toEndOf="@id/output_text_view"
         app:layout_constraintTop_toBottomOf="@+id/plus_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -60,7 +60,7 @@
         android:text="4"
         app:layout_constraintBottom_toTopOf="@id/digit_seven_button"
         app:layout_constraintEnd_toStartOf="@id/digit_five_button"
-        app:layout_constraintStart_toEndOf="@id/screen_edit_text"
+        app:layout_constraintStart_toEndOf="@id/output_text_view"
         app:layout_constraintTop_toBottomOf="@+id/digit_one_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -94,7 +94,7 @@
         android:text="7"
         app:layout_constraintBottom_toTopOf="@+id/dot_button"
         app:layout_constraintEnd_toStartOf="@id/digit_eight_button"
-        app:layout_constraintStart_toEndOf="@id/screen_edit_text"
+        app:layout_constraintStart_toEndOf="@id/output_text_view"
         app:layout_constraintTop_toBottomOf="@id/digit_four_button" />
 
     <Button
@@ -136,7 +136,7 @@
         android:text="+"
         app:layout_constraintBottom_toTopOf="@+id/digit_one_button"
         app:layout_constraintEnd_toStartOf="@+id/minus_button"
-        app:layout_constraintStart_toEndOf="@id/screen_edit_text"
+        app:layout_constraintStart_toEndOf="@id/output_text_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -209,7 +209,7 @@
         android:text="."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/digit_zero_button"
-        app:layout_constraintStart_toEndOf="@id/screen_edit_text"
+        app:layout_constraintStart_toEndOf="@id/output_text_view"
         app:layout_constraintTop_toBottomOf="@+id/digit_seven_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
