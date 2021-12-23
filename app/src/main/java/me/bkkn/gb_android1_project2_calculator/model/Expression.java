@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 public class Expression implements Parcelable {
     public static final String KEY = "expression";
     private String expression;
+    private String result = "not calculated";
 
     public Expression(CharSequence text) {
         expression = (String) text;
@@ -16,6 +17,23 @@ public class Expression implements Parcelable {
     protected Expression(Parcel in) {
         expression = in.readString();
     }
+
+    public String evaluate() {
+        try {
+            result = stringFromJNI(expression);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * A native method that is implemented by the 'gb_android1_project2_calculator' native library,
+     * which is packaged with this application.
+     *
+     * @param s
+     */
+    public native String stringFromJNI(String s);
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -43,5 +61,9 @@ public class Expression implements Parcelable {
     @Override
     public String toString() {
         return expression;
+    }
+
+    public String getResultString() {
+        return result;
     }
 }

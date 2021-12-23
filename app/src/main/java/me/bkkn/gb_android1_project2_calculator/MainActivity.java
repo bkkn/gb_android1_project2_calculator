@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView output;
     private Button lookupButton;
 
+    // Used to load the 'gb_android1_project2_calculator' library on application startup.
+    static {
+        System.loadLibrary("gb_android1_project2_calculator");
+    }
+
     void appendToOutputOnButtonPressed(Button button) {
         output.setText(output.getText().toString() + button.getText());
     }
@@ -38,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         initOperations();
         initSpecialButtons();
 
-        if(savedInstanceState != null && savedInstanceState.containsKey(Expression.KEY))
-            output.setText(((Expression)savedInstanceState.get(Expression.KEY)).toString());
+        if (savedInstanceState != null && savedInstanceState.containsKey(Expression.KEY))
+            output.setText(((Expression) savedInstanceState.get(Expression.KEY)).toString());
     }
 
     @Override
@@ -95,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.sign_button).setOnClickListener(v -> doComplicatedStuffOnButtonPressed((Button) v));
         lookupButton = findViewById(R.id.lookup_button);
         lookupButton.setOnClickListener(view -> {
-            startActivity(new Intent().setClass(this,LookupActivity.class).putExtra(Expression.KEY, new Expression(output.getText())));
+            startActivity(new Intent(this, LookupActivity.class)
+                    .putExtra(Expression.KEY, new Expression(output.getText())));
         });
     }
 
@@ -125,5 +131,4 @@ public class MainActivity extends AppCompatActivity {
             digitButtonList.add(button[0]);
         }
     }
-
 }
