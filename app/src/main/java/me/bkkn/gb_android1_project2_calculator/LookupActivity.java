@@ -1,6 +1,8 @@
 package me.bkkn.gb_android1_project2_calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -15,8 +17,13 @@ public class LookupActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lookup_activity);
-        ((TextView) findViewById(R.id.lookup_edit_text))
-                .setText(((Expression) getIntent()
-                        .getParcelableExtra(Expression.KEY)).toString());
+
+        Expression expression = ((Expression) getIntent().getParcelableExtra(Expression.KEY));
+        String input = expression.toString();
+        String result = expression.evaluate();
+
+        ((TextView) findViewById(R.id.lookup_input_edit_text)).setText(input);
+
+        ((TextView) findViewById(R.id.lookup_result_edit_text)).setText(result);
     }
 }
