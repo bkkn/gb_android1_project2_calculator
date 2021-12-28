@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">gb_android1_project2_calculator</string>
+    <string name="app_name">Calculator</string>
     <string name="look_up_the_expression">Look Up The Expression</string>
     <string name="digit_one_label_1">1</string>
     <string name="digit_two_label_2">2</string>

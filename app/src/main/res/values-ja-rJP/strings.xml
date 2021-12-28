@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">電卓</string>
+    <string name="look_up_the_expression">" 式を調べる"</string>
+    <string name="digit_one_label_1">" 一"</string>
+    <string name="digit_three_label_3">二</string>
+    <string name="digit_two_label_2">" 二"</string>
+    <string name="digit_two_label_2">二</string>
+    <string name="digit_four_label_4">四</string>
+    <string name="digit_five_label_5">五</string>
+    <string name="digit_six_label_6">六</string>
+    <string name="digit_seven_label_7">七</string>
+    <string name="digit_eight_label_8">八</string>
+    <string name="digit_nine_label_9">九</string>
+    <string name="digit_zero_label_0">〇</string>
+    <string name="back_button_label">後退</string>
+    <string name="clear_button_label">クリア</string>
+</resources>
