@@ -3,6 +3,7 @@
     <string name="app_name">Калькулятор</string>
     <string name="look_up_the_expression">Посмотреть выражение</string>
     <string name="clear_button_label">очистить</string>
+    <string name="back_button_label">назад</string>
     <string name="digit_one_label_1">1</string>
     <string name="digit_two_label_2">2</string>
     <string name="digit_three_label_3">3</string>

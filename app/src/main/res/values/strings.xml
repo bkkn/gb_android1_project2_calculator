@@ -11,14 +11,14 @@
     <string name="digit_eight_label_8">8</string>
     <string name="digit_nine_label_9">9</string>
     <string name="digit_zero_label_0">0</string>
-    <string name="operation_plus_label">+</string>
-    <string name="operation_minus_label">-</string>
-    <string name="operation_multiply_label">*</string>
-    <string name="operation_divide_label">/</string>
-    <string name="equals_button_label">=</string>
+    <string name="operation_plus_label" translatable="false">+</string>
+    <string name="operation_minus_label" translatable="false">-</string>
+    <string name="operation_multiply_label" translatable="false">*</string>
+    <string name="operation_divide_label" translatable="false">/</string>
+    <string name="equals_button_label" translatable="false">=</string>
     <string name="clear_button_label">C</string>
     <string name="back_button_label">back</string>
-    <string name="point_button_label">.</string>
-    <string name="sign_button_label">+/-</string>
-    <string name="evaluate_button_label" />
+    <string name="point_button_label" translatable="false">.</string>
+    <string name="sign_button_label" translatable="false">+/-</string>
+    <string name="evaluate_button_label" translatable="false" />
 </resources>

@@ -26,7 +26,8 @@
         app:layout_constraintEnd_toStartOf="@id/digit_two_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plus_button"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/digit_button_style"/>
 
     <Button
         android:id="@+id/digit_two_button"
@@ -37,7 +38,8 @@
         app:layout_constraintEnd_toStartOf="@id/digit_three_button"
         app:layout_constraintStart_toEndOf="@id/digit_one_button"
         app:layout_constraintTop_toBottomOf="@+id/minus_button"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/digit_button_style"/>
 
     <Button
         android:id="@+id/digit_three_button"
@@ -48,7 +50,8 @@
         app:layout_constraintEnd_toStartOf="@+id/clear_button"
         app:layout_constraintStart_toEndOf="@id/digit_two_button"
         app:layout_constraintTop_toBottomOf="@id/multiply_button"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/digit_button_style"/>
 
     <Button
         android:id="@+id/digit_four_button"
@@ -59,7 +62,8 @@
         app:layout_constraintEnd_toStartOf="@id/digit_five_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_one_button"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/digit_button_style"/>
 
     <Button
         android:id="@+id/digit_five_button"
@@ -71,10 +75,12 @@
         app:layout_constraintBottom_toTopOf="@id/digit_eight_button"
         app:layout_constraintEnd_toStartOf="@id/digit_six_button"
         app:layout_constraintStart_toEndOf="@id/digit_four_button"
-        app:layout_constraintTop_toBottomOf="@id/digit_two_button" />
+        app:layout_constraintTop_toBottomOf="@id/digit_two_button"
+        style="@style/digit_button_style"/>
 
     <Button
         android:id="@+id/digit_six_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/digit_six_label_6"
@@ -86,6 +92,7 @@
 
     <Button
         android:id="@+id/digit_seven_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/digit_seven_label_7"
@@ -96,6 +103,7 @@
 
     <Button
         android:id="@+id/digit_eight_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/digit_eight_label_8"
@@ -106,6 +114,7 @@
 
     <Button
         android:id="@+id/digit_nine_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/digit_nine_label_9"
@@ -117,6 +126,7 @@
 
     <Button
         android:id="@+id/digit_zero_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/digit_zero_label_0"
@@ -128,28 +138,31 @@
 
     <Button
         android:id="@+id/plus_button"
+        style="@style/operation_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/operation_plus_label"
-        app:layout_constraintTop_toBottomOf="@id/output_text_view"
         app:layout_constraintBottom_toTopOf="@+id/digit_one_button"
         app:layout_constraintEnd_toStartOf="@+id/minus_button"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/output_text_view"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/minus_button"
+        style="@style/operation_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/operation_minus_label"
-        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@+id/digit_two_button"
         app:layout_constraintEnd_toStartOf="@+id/multiply_button"
         app:layout_constraintStart_toEndOf="@+id/plus_button"
-        app:layout_constraintTop_toBottomOf="@id/output_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/output_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/multiply_button"
+        style="@style/operation_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/operation_multiply_label"
@@ -161,6 +174,7 @@
 
     <Button
         android:id="@+id/divide_button"
+        style="@style/operation_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/operation_divide_label"
@@ -171,6 +185,7 @@
 
     <Button
         android:id="@+id/equals_button"
+        style="@style/special_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/equals_button_label"
@@ -181,6 +196,7 @@
 
     <Button
         android:id="@+id/clear_button"
+        style="@style/special_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clear_button_label"
@@ -191,6 +207,7 @@
 
     <Button
         android:id="@+id/backspace_button"
+        style="@style/special_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back_button_label"
@@ -211,6 +228,7 @@
 
     <Button
         android:id="@+id/sign_button"
+        style="@style/digit_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_button_label"
