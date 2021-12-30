@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    style="@style/main_activity_style">
 
     <TextView
         android:id="@+id/output_text_view"
@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1 + 1 = 2"
-        style="@style/input_style" />
+        style="@style/output_style" />
 
     <Button
         android:id="@+id/digit_one_button"
