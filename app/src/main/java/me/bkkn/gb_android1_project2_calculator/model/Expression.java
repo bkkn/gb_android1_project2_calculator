@@ -2,9 +2,6 @@ package me.bkkn.gb_android1_project2_calculator.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.ListAdapter;
-
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,30 +11,25 @@ import me.bkkn.gb_android1_project2_calculator.utils.Utils;
 
 public class Expression implements Parcelable {
     public static final String KEY = "expression";
-    //private String expression;
+    public static final double RESULT_DEFAULT = Double.MAX_VALUE;
+    private double result = RESULT_DEFAULT;
     private List<InputSymbol> inputSymbols = new ArrayList<>();
 
     public Expression(Expression expression) {
         this.inputSymbols = expression.inputSymbols;
-    }
-
-    public List<InputSymbol> getInputSymbols() {
-        return inputSymbols;
-    }
-
-    public void addInputSymbols(List<InputSymbol> list) {
-        this.inputSymbols.addAll(list);
-    }
-
-    public void setInputSymbols(List<InputSymbol> inputSymbols) {
-        this.inputSymbols = inputSymbols;
+        this.result = expression.result;
     }
 
     public Expression() {
 
     }
 
-    public Expression(Parcel in) {
+    public boolean hasDot() {
+        return inputSymbols.contains(InputSymbol.DOT);
+    }
+
+    protected Expression(Parcel in) {
+        result = in.readDouble();
     }
 
     public static final Creator<Expression> CREATOR = new Creator<Expression>() {
@@ -52,18 +44,37 @@ public class Expression implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public List<InputSymbol> getInputSymbols() {
+        return inputSymbols;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void addInputSymbols(List<InputSymbol> list) {
+        this.inputSymbols.addAll(list);
     }
-    
-    public void clear() {
-        this.inputSymbols.clear();
+
+    public void setInputSymbols(List<InputSymbol> inputSymbols) {
+        this.inputSymbols = inputSymbols;
     }
+
+    public double evaluate() {
+        try {
+            String s = toString();
+            s.replace('.',',');
+            result = stringFromJNI(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * A native method that is implemented by the 'gb_android1_project2_calculator' native library,
+     * which is packaged with this application.
+     *
+     * @param s
+     * @return
+     */
+    public native double stringFromJNI(String s);
 
     @Override
     public String toString() {
@@ -74,12 +85,49 @@ public class Expression implements Parcelable {
         this.inputSymbols.add(inputSymbol);
     }
 
-    public double evaluate() {
+    public boolean resultIsCalculated() {
+        //return (result - Double.MAX_VALUE) >= 1e-5;
+        return result != Double.MAX_VALUE;// is it ok to compare like this?
+    }
+
+    public boolean resultIsInteger() {
+        if (!resultIsCalculated())
+            result = evaluate();
+        return (result % 1) == 0;
+    }
+
+    public String getResultString() {
+        if (resultIsInteger())
+            return String.valueOf((int) result);
+        else
+            return String.valueOf(result);
+    }
+
+    @Override
+    public int describeContents() {
         return 0;
     }
-    public boolean resultIsInteger()
-    {
-        double result = evaluate();
-        return (result % 1) == 0;
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeDouble(result);
+    }
+
+    public void setResult(double result) {
+        this.result = result;
+    }
+
+    public void backspace() {
+        if (!inputSymbols.isEmpty())
+            inputSymbols.remove(inputSymbols.size() - 1);
+    }
+
+    public void clear() {
+        this.inputSymbols.clear();
+        this.result = RESULT_DEFAULT;
+    }
+
+    public double getResult() {
+        return result;
     }
 }

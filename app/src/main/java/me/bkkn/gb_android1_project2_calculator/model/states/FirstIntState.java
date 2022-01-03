@@ -19,8 +19,14 @@ public class FirstIntState extends BaseState {
             case NUM_1:
             case NUM_2:
             case NUM_3:
+            case NUM_4:
+            case NUM_5:
+            case NUM_6:
+            case NUM_7:
+            case NUM_8:
+            case NUM_9:
                 expression.addInputSymbol(inputSymbol);
-                return new IntState(expression.getInputSymbols());
+                return new IntState(expression);
             case DOT:
                 expression.addInputSymbol(InputSymbol.NUM_0);
                 expression.addInputSymbol(InputSymbol.DOT);
@@ -29,7 +35,7 @@ public class FirstIntState extends BaseState {
                 expression.addInputSymbol(InputSymbol.NUM_0);
                 return new ZeroState(expression.getInputSymbols());
             case CLEAR:
-                return new SignState();
+                return new SignState(expression);
             default:
                 return this;
         }

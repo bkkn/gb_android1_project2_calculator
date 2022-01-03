@@ -1,11 +1,15 @@
 package me.bkkn.gb_android1_project2_calculator.model.states;
 
 import java.util.List;
+
 import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
+import me.bkkn.gb_android1_project2_calculator.model.Expression;
+
 public class IntState extends BaseState {
 
-    public IntState(List<InputSymbol> expression) {
-        this.expression.addInputSymbols(expression);
+    public IntState(Expression expression) {
+        this.expression.addInputSymbols(expression.getInputSymbols());
+        this.expression.setResult(expression.getResult());
     }
 
     @Override
@@ -22,7 +26,7 @@ public class IntState extends BaseState {
                 return this;
             case OP_DIVIDE:
                 expression.addInputSymbol(InputSymbol.OP_DIVIDE);
-                if(expression.resultIsInteger())
+                if (expression.resultIsInteger())
                     return this;
                 else
                     return new FloatState(expression.getInputSymbols());
@@ -43,9 +47,13 @@ public class IntState extends BaseState {
                 return new FloatState(expression.getInputSymbols());
             case CLEAR:
                 return new SignState();
+            case BACK:
+                expression.backspace();
+                return new SignState(expression);
             case EQUALS:
+                expression.evaluate();
                 expression.addInputSymbol(InputSymbol.EQUALS);
-                return new SignState();
+                return new ResultState(expression);
             default:
                 return this;
         }

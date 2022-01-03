@@ -50,6 +50,8 @@ public class Utils {
                 return InputSymbol.DOT;
             case R.id.clear_button:
                 return InputSymbol.CLEAR;
+            case R.id.backspace_button:
+                return InputSymbol.BACK;
             case R.id.equals_button:
                 return InputSymbol.EQUALS;
             default:
@@ -108,6 +110,9 @@ public class Utils {
                     break;
                 case OP_DIVIDE:
                     sb.append(context.getResources().getString(R.string.operation_divide_label));
+                    break;
+                case EQUALS:
+                    sb.append(context.getResources().getString(R.string.equals_button_label));
                     break;
                 default:
                     sb.append("@");

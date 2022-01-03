@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
 import me.bkkn.gb_android1_project2_calculator.model.Expression;
 import me.bkkn.gb_android1_project2_calculator.model.Model;
 import me.bkkn.gb_android1_project2_calculator.model.states.SignState;
@@ -27,14 +26,28 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Integer> digitButtonResourceList;
     private TextView output;
     private Button lookupButton;
-    private Model model = new Model(new Expression(), new SignState());
+    private Model model = new Model(new SignState(new Expression()));
 
     void updateModel(int buttonId) {
         model.updateState(buttonId);
     }
 
     private void updateView() {
-        this.output.setText(model.getState().getExpression().toString());
+        Expression expression = model.getState().getExpression();
+        String expressionString = expression.toString();
+        String resultString = "";
+        if(expression.resultIsCalculated())
+            resultString = expression.getResultString();
+        this.output.setText(expressionString + resultString);
+    }
+
+    // Used to load the 'gb_android1_project2_calculator' library on application startup.
+    static {
+        System.loadLibrary("gb_android1_project2_calculator");
+    }
+
+    void appendToOutputOnButtonPressed(Button button) {
+        output.setText(output.getText().toString() + button.getText());
     }
 
 
@@ -117,12 +130,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initSpecialButtons() {
-        findViewById(R.id.dot_button).setOnClickListener(v -> updateModel(R.id.dot_button));
-        findViewById(R.id.sign_button).setOnClickListener(v -> updateModel(R.id.sign_button));
+        findViewById(R.id.dot_button).setOnClickListener(v -> {updateModel(R.id.dot_button); updateView();});
+        findViewById(R.id.sign_button).setOnClickListener(v -> {updateModel(R.id.sign_button);updateView();});
         lookupButton = findViewById(R.id.lookup_button);
         lookupButton.setOnClickListener(view -> {
             startActivity(new Intent().setClass(this, LookupActivity.class));
             // .putExtra(Expression.KEY, new Expression(output.getText())));
+            startActivity(new Intent(this, LookupActivity.class)
+                    .putExtra(Expression.KEY, "stub"));
         });
     }
 

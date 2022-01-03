@@ -6,24 +6,22 @@ import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
 import me.bkkn.gb_android1_project2_calculator.model.Expression;
 
 /**
- * Самое первое состояние, ожидаем ввода знака (минус) или числа
+ * Last state, wait for new expression input: sign - or num
  */
-public class SignState extends BaseState {
-    public SignState(Expression expression) {
-        this.expression = expression;
-    }
-
-    public SignState() {
+public class ResultState extends SignState {
+    public ResultState(Expression expression) {
+        super(expression);
     }
 
     @Override
     public BaseState onClickButton(InputSymbol inputSymbol) {
+        if (inputSymbol == InputSymbol.EQUALS)
+            return this;
+        expression.clear();
         switch (inputSymbol) {
             case OP_MINUS:
                 expression.addInputSymbol(InputSymbol.OP_MINUS);
                 return new FirstIntState(expression.getInputSymbols());
-            case OP_PLUS:
-                return this;
             case DOT:
                 expression.addInputSymbol(InputSymbol.NUM_0);
                 expression.addInputSymbol(InputSymbol.DOT);
@@ -43,10 +41,8 @@ public class SignState extends BaseState {
                 expression.addInputSymbol(inputSymbol);
                 return new IntState(expression);
             case CLEAR:
-                return new SignState(expression);
-            case BACK:
-                expression.backspace();
-                return new SignState(expression);
+                return new SignState();
+            case OP_PLUS:
             default:
                 return this;
         }

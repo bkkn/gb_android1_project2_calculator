@@ -8,7 +8,7 @@ import me.bkkn.gb_android1_project2_calculator.model.Expression;
 
 
 abstract public class BaseState {
-    protected final Expression expression = new Expression();
+    protected Expression expression = new Expression();
 
     public abstract BaseState onClickButton(InputSymbol inputSymbol);
 

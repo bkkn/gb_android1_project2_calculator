@@ -39,6 +39,16 @@ public class FloatState extends BaseState {
                 return this;
             case CLEAR:
                 return new SignState();
+            case BACK:
+                expression.backspace();
+                if(expression.hasDot())
+                    return this;
+                else
+                    return new IntState(expression);
+            case EQUALS:
+                expression.evaluate();
+                expression.addInputSymbol(InputSymbol.EQUALS);
+                return new ResultState(expression);
             default:
                 return this;
         }

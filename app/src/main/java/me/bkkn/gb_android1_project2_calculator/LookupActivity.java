@@ -20,10 +20,9 @@ public class LookupActivity extends AppCompatActivity {
 
         Expression expression = ((Expression) getIntent().getParcelableExtra(Expression.KEY));
         String input = expression.toString();
-        String result = expression.evaluate();
+        double result = expression.evaluate();
 
         ((TextView) findViewById(R.id.lookup_input_edit_text)).setText(input);
-
-        ((TextView) findViewById(R.id.lookup_result_edit_text)).setText(result);
+        ((TextView) findViewById(R.id.lookup_result_edit_text)).setText( String.valueOf(result));
     }
 }

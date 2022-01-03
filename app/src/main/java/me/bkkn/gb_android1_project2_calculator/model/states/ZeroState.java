@@ -15,7 +15,7 @@ public class ZeroState extends BaseState {
                 expression.addInputSymbol(InputSymbol.DOT);
                 return new FloatState(expression.getInputSymbols());
             case CLEAR:
-                return new SignState();
+                return new SignState(expression);
             default:
                 return this;
         }
