@@ -1,13 +1,11 @@
 package me.bkkn.gb_android1_project2_calculator.model.states;
 
-import java.util.List;
-
 import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
 import me.bkkn.gb_android1_project2_calculator.model.Expression;
 
-public class IntState extends BaseState {
+public class NoOperationState extends BaseState {
 
-    public IntState(Expression expression) {
+    public NoOperationState(Expression expression) {
         this.expression.addInputSymbols(expression.getInputSymbols());
         this.expression.setResult(expression.getResult());
     }
@@ -15,18 +13,6 @@ public class IntState extends BaseState {
     @Override
     public BaseState onClickButton(InputSymbol inputSymbol) {
         switch (inputSymbol) {
-            case OP_MINUS:
-                expression.addInputSymbol(InputSymbol.OP_MINUS);
-                return new NoOperationState(expression);
-            case OP_PLUS:
-                expression.addInputSymbol(InputSymbol.OP_PLUS);
-                return new NoOperationState(expression);
-            case OP_MULTIPLY:
-                expression.addInputSymbol(InputSymbol.OP_MULTIPLY);
-                return new NoOperationState(expression);
-            case OP_DIVIDE:
-                expression.addInputSymbol(InputSymbol.OP_DIVIDE);
-                return new NoOperationState(expression);
             case NUM_0:
             case NUM_1:
             case NUM_2:
@@ -38,8 +24,9 @@ public class IntState extends BaseState {
             case NUM_8:
             case NUM_9:
                 expression.addInputSymbol(inputSymbol);
-                return this;
+                return new IntState(expression);
             case DOT:
+                expression.addInputSymbol(InputSymbol.NUM_0);
                 expression.addInputSymbol(InputSymbol.DOT);
                 return new FloatState(expression.getInputSymbols());
             case CLEAR:
@@ -47,10 +34,6 @@ public class IntState extends BaseState {
             case BACK:
                 expression.backspace();
                 return new SignState(expression);
-            case EQUALS:
-                expression.evaluate();
-                expression.addInputSymbol(InputSymbol.EQUALS);
-                return new ResultState(expression);
             default:
                 return this;
         }

@@ -15,16 +15,16 @@ public class FloatState extends BaseState {
         switch (inputSymbol) {
             case OP_MINUS:
                 expression.addInputSymbol(InputSymbol.OP_MINUS);
-                return this;
+                return new NoOperationState(expression);
             case OP_PLUS:
                 expression.addInputSymbol(InputSymbol.OP_PLUS);
-                return this;
+                return new NoOperationState(expression);
             case OP_MULTIPLY:
                 expression.addInputSymbol(InputSymbol.OP_MULTIPLY);
-                return this;
+                return new NoOperationState(expression);
             case OP_DIVIDE:
                 expression.addInputSymbol(InputSymbol.OP_DIVIDE);
-                return this;
+                return new NoOperationState(expression);
             case NUM_0:
             case NUM_1:
             case NUM_2:

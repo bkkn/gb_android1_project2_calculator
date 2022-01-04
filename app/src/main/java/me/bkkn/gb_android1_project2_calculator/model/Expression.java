@@ -100,7 +100,7 @@ public class Expression implements Parcelable {
         if (resultIsInteger())
             return String.valueOf((int) result);
         else
-            return String.valueOf(result);
+            return String.format("%.3f", result);
     }
 
     @Override
