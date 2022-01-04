@@ -26,10 +26,7 @@ public class IntState extends BaseState {
                 return this;
             case OP_DIVIDE:
                 expression.addInputSymbol(InputSymbol.OP_DIVIDE);
-                if (expression.resultIsInteger())
-                    return this;
-                else
-                    return new FloatState(expression.getInputSymbols());
+                return this;
             case NUM_0:
             case NUM_1:
             case NUM_2:
