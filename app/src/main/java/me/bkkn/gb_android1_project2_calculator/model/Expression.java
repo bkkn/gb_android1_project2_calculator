@@ -59,8 +59,9 @@ public class Expression implements Parcelable {
     public double evaluate() {
         try {
             String s = toString();
-            s.replace('.',',');
-            result = stringFromJNI(s);
+            result = Double.parseDouble(Solver.solve(s));
+//            s.replace('.',',');
+//            result = stringFromJNI(s);
         } catch (Exception e) {
             e.printStackTrace();
         }
