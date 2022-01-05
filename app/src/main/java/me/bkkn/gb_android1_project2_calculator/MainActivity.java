@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Expression expression = model.getState().getExpression();
         String expressionString = expression.toString();
         String resultString = "";
-        if(expression.resultIsCalculated())
+        if (expression.resultIsCalculated())
             resultString = expression.getResultString();
         this.output.setText(expressionString + resultString);
     }
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         Log.d(TAG, "onSaveInstanceState() called with: outState = [" + outState + "]");
-        //outState.putParcelable(Expression.KEY, new Expression(output.getText()));
+        outState.putParcelable(Expression.KEY, model.getState().getExpression());
         super.onSaveInstanceState(outState);
     }
 
@@ -85,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onRestoreInstanceState() called with: savedInstanceState = [" + savedInstanceState + "]");
         super.onRestoreInstanceState(savedInstanceState);
         Utils.setContext(this);
-        String str = ((Expression) savedInstanceState.getParcelable(Expression.KEY)).toString();
-        output.setText(str);
+        Expression expression = savedInstanceState.getParcelable(Expression.KEY);
+        model.getState().setExpression(expression);
+        updateView();
     }
 
     private void initDigitButtons() {
@@ -130,14 +133,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initSpecialButtons() {
-        findViewById(R.id.dot_button).setOnClickListener(v -> {updateModel(R.id.dot_button); updateView();});
-        findViewById(R.id.sign_button).setOnClickListener(v -> {updateModel(R.id.sign_button);updateView();});
+        findViewById(R.id.dot_button).setOnClickListener(v -> {
+            updateModel(R.id.dot_button);
+            updateView();
+        });
+        findViewById(R.id.sign_button).setOnClickListener(v -> {
+            updateModel(R.id.sign_button);
+            updateView();
+        });
         lookupButton = findViewById(R.id.lookup_button);
         lookupButton.setOnClickListener(view -> {
-            startActivity(new Intent().setClass(this, LookupActivity.class));
-            // .putExtra(Expression.KEY, new Expression(output.getText())));
+            //updateModel(R.id.lookup_button);
+            Expression expression = model.getState().getExpression();
+//            Intent intent = new Intent(this, LookupActivity.class);
+//            intent.putExtra(Expression.KEY, expression);
             startActivity(new Intent(this, LookupActivity.class)
-                    .putExtra(Expression.KEY, "stub"));
+                    .putExtra(Expression.KEY, model.getState().getExpression()));
         });
     }
 

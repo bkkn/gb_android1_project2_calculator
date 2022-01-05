@@ -21,7 +21,6 @@ public class Expression implements Parcelable {
     }
 
     public Expression() {
-
     }
 
     public boolean hasDot() {
@@ -29,6 +28,7 @@ public class Expression implements Parcelable {
     }
 
     protected Expression(Parcel in) {
+        inputSymbols = in.readArrayList(Expression.class.getClassLoader());
         result = in.readDouble();
     }
 
@@ -60,22 +60,11 @@ public class Expression implements Parcelable {
         try {
             String s = toString();
             result = Double.parseDouble(Solver.solve(s));
-//            s.replace('.',',');
-//            result = stringFromJNI(s);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
     }
-
-    /**
-     * A native method that is implemented by the 'gb_android1_project2_calculator' native library,
-     * which is packaged with this application.
-     *
-     * @param s
-     * @return
-     */
-    public native double stringFromJNI(String s);
 
     @Override
     public String toString() {
@@ -101,7 +90,8 @@ public class Expression implements Parcelable {
         if (resultIsInteger())
             return String.valueOf((int) result);
         else
-            return String.format("%.3f", result);
+            //return String.format("%.3f", result);
+            return String.valueOf(result);
     }
 
     @Override
@@ -111,6 +101,7 @@ public class Expression implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeList(inputSymbols);
         dest.writeDouble(result);
     }
 

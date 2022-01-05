@@ -15,4 +15,8 @@ abstract public class BaseState {
     public Expression getExpression() {
         return new Expression(expression);
     }
+
+    public void setExpression(Expression expression) {
+         this.expression = expression;
+    }
 }

@@ -54,11 +54,12 @@ public class Utils {
                 return InputSymbol.BACK;
             case R.id.equals_button:
                 return InputSymbol.EQUALS;
+            case R.id.lookup_button:
+                return InputSymbol.LOOKUP;
             default:
                 throw new IllegalStateException();
         }
     }
-
 
     public static String convertInputSymbolsToString(List<InputSymbol> inputSymbolList) {
         if (context == null)

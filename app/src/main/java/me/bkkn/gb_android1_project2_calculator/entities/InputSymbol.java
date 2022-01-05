@@ -10,5 +10,6 @@ public enum InputSymbol {
     OP_MULTIPLY,
     OP_DIVIDE,
     EQUALS,
+    LOOKUP,
     UNDEFINED
 }
