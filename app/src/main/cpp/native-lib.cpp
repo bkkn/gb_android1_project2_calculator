@@ -10,7 +10,7 @@ Java_me_bkkn_gb_1android1_1project2_1calculator_model_Expression_stringFromJNI(J
     const jsize len = (*env).GetStringLength(jinput);
     jboolean isCopy;
     const char *convertedValue = (env)->GetStringUTFChars(jinput, &isCopy);
- //   std::string output = std::string(convertedValue, len);
+    //   std::string output = std::string(convertedValue, len);
 
 //    std::string output = "Hello from C++";
     std::string expression(convertedValue);
@@ -21,6 +21,6 @@ Java_me_bkkn_gb_1android1_1project2_1calculator_model_Expression_stringFromJNI(J
 //    Expression *pExpression = CreateExpression(expression);
 //    const double result = CalculateExpression(pExpression);
 //    DisposeExpression(pExpression);
-return result;
+    return result;
     //return env->NewStringUTF(output.c_str());
 }

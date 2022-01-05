@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 
 /// @struct Expression - represents expression tree.
@@ -23,8 +24,7 @@
 struct Expression;
 
 // Expression tree node operation code.
-enum class Operation
-{
+enum class Operation {
     NOP, // just a value
     ADD, // +
     SUB, // -
@@ -35,8 +35,7 @@ enum class Operation
 
 // Expression tree node is expression itself,
 //  since expressions are recursively defined.
-struct Expression
-{
+struct Expression {
     double value = 0;
     Operation op = Operation::NOP;
     Expression *pLeft = nullptr;
@@ -44,6 +43,9 @@ struct Expression
 };
 
 Expression *CreateExpression(const std::string &expression);
+
 double CalculateExpression(Expression *pExpression);
+
 void DisposeExpression(Expression *pExpression);
+
 double Calculate(const std::string &expression);

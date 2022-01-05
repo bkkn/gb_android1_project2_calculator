@@ -1,6 +1,7 @@
 package me.bkkn.gb_android1_project2_calculator.model.states;
 
 import java.util.List;
+
 import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
 
 public class ZeroState extends BaseState {

@@ -1,12 +1,9 @@
 package me.bkkn.gb_android1_project2_calculator.utils;
 
 import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.widget.Button;
 
 import java.util.List;
 
-import me.bkkn.gb_android1_project2_calculator.MainActivity;
 import me.bkkn.gb_android1_project2_calculator.R;
 import me.bkkn.gb_android1_project2_calculator.entities.InputSymbol;
 

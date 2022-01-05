@@ -41,7 +41,7 @@ public class FloatState extends BaseState {
                 return new SignState();
             case BACK:
                 expression.backspace();
-                if(expression.hasDot())
+                if (expression.hasDot())
                     return this;
                 else
                     return new IntState(expression);
