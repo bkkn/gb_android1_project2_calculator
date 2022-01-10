@@ -19,15 +19,15 @@
     </style>
 
     <style name="special_button_style" parent="basic_style">
-<!--        <item name="android:textStyle">bold</item>-->
-<!--        <item name="android:textColor">@color/design_default_color_primary</item>-->
-<!--        <item name="android:layout_marginStart">@dimen/margin</item>-->
-<!--        <item name="android:layout_marginEnd">@dimen/margin</item>-->
-<!--        <item name="android:layout_marginTop">@dimen/margin</item>-->
-<!--        <item name="android:fontFamily">cursive</item>-->
-<!--        <item name= "android:gravity"> left </item>-->
-<!--        <item name= "android:text">@string/evaluate_button_label</item>-->
-<!--        <item name= "android:textAllCaps">true</item>-->
+        <!--        <item name="android:textStyle">bold</item>-->
+        <!--        <item name="android:textColor">@color/design_default_color_primary</item>-->
+        <!--        <item name="android:layout_marginStart">@dimen/margin</item>-->
+        <!--        <item name="android:layout_marginEnd">@dimen/margin</item>-->
+        <!--        <item name="android:layout_marginTop">@dimen/margin</item>-->
+        <!--        <item name="android:fontFamily">cursive</item>-->
+        <!--        <item name= "android:gravity"> left </item>-->
+        <!--        <item name= "android:text">@string/evaluate_button_label</item>-->
+        <!--        <item name= "android:textAllCaps">true</item>-->
     </style>
 
     <style name="operation_button_style" parent="basic_style">
@@ -35,7 +35,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/design_default_color_secondary</item>
-<!--        <item name="android:textStyle">bold</item>-->
+        <!--        <item name="android:textStyle">bold</item>-->
     </style>
 
     <style name="main_activity_style">
