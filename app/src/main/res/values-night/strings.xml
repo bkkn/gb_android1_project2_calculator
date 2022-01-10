@@ -1,15 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Calculator</string>
-    <string name="look_up_the_expression">Look Up The Expression</string>
     <string name="digit_one_label_1">1</string>
     <string name="digit_two_label_2">2</string>
     <string name="digit_three_label_3">3</string>
     <string name="digit_four_label_4">4</string>
-    <string name="digit_five_label_5">5</string>
     <string name="digit_six_label_6">6</string>
     <string name="digit_seven_label_7">7</string>
     <string name="digit_eight_label_8">8</string>
-    <string name="digit_nine_label_9">9</string>
     <string name="digit_zero_label_0">0</string>
     <string name="operation_plus_label" translatable="false">+</string>
     <string name="operation_minus_label" translatable="false">-</string>
@@ -18,7 +15,7 @@
     <string name="equals_button_label" translatable="false">=</string>
     <string name="clear_button_label">C</string>
     <string name="back_button_label">back</string>
-    <string name="point_button_label" translatable="false">.</string>
-    <string name="sign_button_label" translatable="false">+/-</string>
-    <string name="evaluate_button_label" translatable="false" />
+    <string name="point_button_label">.</string>
+    <string name="sign_button_label">+/-</string>
+    <string name="evaluate_button_label" />
 </resources>

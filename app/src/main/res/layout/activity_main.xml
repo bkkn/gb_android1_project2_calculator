@@ -2,18 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
+    style="@style/main_activity_style"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/output_text_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textSize="48sp"
+        style="@style/output_style"
         app:layout_constraintBottom_toTopOf="@+id/plus_button"
         app:layout_constraintEnd_toEndOf="@+id/divide_button"
         app:layout_constraintStart_toStartOf="@+id/plus_button"
@@ -21,203 +15,184 @@
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="1 + 1 = 2" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_one_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
+        style="@style/digit_button_style"
+        android:text="@string/digit_one_label_1"
         app:layout_constraintBottom_toTopOf="@id/digit_four_button"
         app:layout_constraintEnd_toStartOf="@id/digit_two_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plus_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_two_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
+        style="@style/digit_button_style"
+        android:text="@string/digit_two_label_2"
         app:layout_constraintBottom_toTopOf="@+id/digit_five_button"
         app:layout_constraintEnd_toStartOf="@id/digit_three_button"
         app:layout_constraintStart_toEndOf="@id/digit_one_button"
         app:layout_constraintTop_toBottomOf="@+id/minus_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_three_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
+        style="@style/digit_button_style"
+        android:text="@string/digit_three_label_3"
         app:layout_constraintBottom_toTopOf="@+id/digit_six_button"
         app:layout_constraintEnd_toStartOf="@+id/clear_button"
         app:layout_constraintStart_toEndOf="@id/digit_two_button"
         app:layout_constraintTop_toBottomOf="@id/multiply_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_four_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4"
+        style="@style/digit_button_style"
+        android:text="@string/digit_four_label_4"
         app:layout_constraintBottom_toTopOf="@id/digit_seven_button"
         app:layout_constraintEnd_toStartOf="@id/digit_five_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_one_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_five_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        style="@style/digit_button_style"
+        android:text="@string/digit_five_label_5"
         app:layout_constraintBottom_toTopOf="@id/digit_eight_button"
         app:layout_constraintEnd_toStartOf="@id/digit_six_button"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/digit_four_button"
-        app:layout_constraintTop_toBottomOf="@id/digit_two_button" />
+        app:layout_constraintTop_toBottomOf="@id/digit_two_button"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_six_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6"
+        style="@style/digit_button_style"
+        android:text="@string/digit_six_label_6"
         app:layout_constraintBottom_toTopOf="@+id/digit_nine_button"
         app:layout_constraintEnd_toStartOf="@+id/backspace_button"
         app:layout_constraintStart_toEndOf="@id/digit_five_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_three_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_seven_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7"
+        style="@style/digit_button_style"
+        android:text="@string/digit_seven_label_7"
         app:layout_constraintBottom_toTopOf="@+id/dot_button"
         app:layout_constraintEnd_toStartOf="@id/digit_eight_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/digit_four_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_eight_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8"
+        style="@style/digit_button_style"
+        android:text="@string/digit_eight_label_8"
         app:layout_constraintBottom_toTopOf="@+id/digit_zero_button"
         app:layout_constraintEnd_toStartOf="@id/digit_nine_button"
         app:layout_constraintStart_toEndOf="@id/digit_seven_button"
         app:layout_constraintTop_toBottomOf="@id/digit_five_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_nine_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9"
+        style="@style/digit_button_style"
+        android:text="@string/digit_nine_label_9"
         app:layout_constraintBottom_toTopOf="@+id/sign_button"
         app:layout_constraintEnd_toStartOf="@+id/equals_button"
         app:layout_constraintStart_toEndOf="@id/digit_eight_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_six_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_zero_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
+        style="@style/digit_button_style"
+        android:text="@string/digit_zero_label_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sign_button"
         app:layout_constraintStart_toEndOf="@+id/dot_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_eight_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/plus_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        app:layout_constraintTop_toBottomOf="@id/output_text_view"
+        style="@style/operation_button_style"
+        android:text="@string/operation_plus_label"
         app:layout_constraintBottom_toTopOf="@+id/digit_one_button"
         app:layout_constraintEnd_toStartOf="@+id/minus_button"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/output_text_view"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/minus_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/operation_button_style"
+        android:text="@string/operation_minus_label"
         app:layout_constraintBottom_toTopOf="@+id/digit_two_button"
         app:layout_constraintEnd_toStartOf="@+id/multiply_button"
         app:layout_constraintStart_toEndOf="@+id/plus_button"
-        app:layout_constraintTop_toBottomOf="@id/output_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/output_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/multiply_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
+        style="@style/operation_button_style"
+        android:text="@string/operation_multiply_label"
         app:layout_constraintBottom_toTopOf="@+id/digit_three_button"
         app:layout_constraintEnd_toStartOf="@+id/divide_button"
         app:layout_constraintStart_toEndOf="@id/minus_button"
         app:layout_constraintTop_toBottomOf="@id/output_text_view"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/divide_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
+        style="@style/operation_button_style"
+        android:text="@string/operation_divide_label"
         app:layout_constraintBottom_toTopOf="@+id/clear_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/multiply_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/equals_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
+        style="@style/special_button_style"
+        android:text="@string/equals_button_label"
         app:layout_constraintBottom_toTopOf="@+id/sign_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_nine_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/clear_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C"
+        style="@style/special_button_style"
+        android:text="@string/clear_button_label"
         app:layout_constraintBottom_toBottomOf="@+id/digit_three_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_three_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/backspace_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="back"
+        style="@style/special_button_style"
+        android:text="@string/back_button_label"
         app:layout_constraintBottom_toBottomOf="@+id/digit_six_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_three_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/dot_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="."
+        style="@style/special_button_style"
+        android:text="@string/point_button_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/digit_zero_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_seven_button"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+/-"
+        style="@style/special_button_style"
+        android:text="@string/sign_button_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/equals_button"
         app:layout_constraintStart_toEndOf="@id/digit_zero_button"
@@ -226,15 +201,14 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/lookup_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="left"
+        android:gravity="start"
+        android:text="@string/evaluate_button_label"
         android:textAllCaps="true"
         app:backgroundTint="#fc0"
         app:icon="@drawable/ic_baseline_search_24"
         app:iconGravity="textStart"
-        app:iconPadding="10dp"
         app:iconTint="#f00"
+        style="@style/special_button_style"
         app:layout_constraintBottom_toBottomOf="@+id/sign_button"
         app:layout_constraintEnd_toEndOf="@+id/equals_button"
         app:layout_constraintStart_toStartOf="@+id/equals_button"
